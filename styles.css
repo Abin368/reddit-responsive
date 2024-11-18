@@ -1,0 +1,693 @@
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --primary-color: #FF4500;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+h3 {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+body {
+
+    font-family: 'Reddit Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+/* Navbar Height */
+.navbar-custom {
+    min-height: 5rem;
+    /* Adjust for default height */
+    padding: 1rem 0;
+
+}
+
+/* Logo Spacing */
+.logo {
+    margin-left: 10%;
+    /* Adjust percentage as needed */
+}
+
+/* UL Margin from Logo */
+.custom-nav {
+    margin-left: 1em;
+    /* Adjust for desired spacing */
+
+}
+
+/* Gap Between <li> Items */
+.navbar-nav {
+    gap: 2rem;
+    /* Use gap for consistent spacing */
+    font-size: 16px;
+    font-weight: 700;
+
+}
+
+/* Bottom Margin for <li> */
+.nav-item {
+    margin-bottom: 1.5rem;
+}
+
+.custom-button {
+    width: 9.875rem;
+    height: 2.063rem;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.custom-button:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 2px var(--primary-color) solid;
+    color: #FF4500;
+}
+
+ul li {
+    position: relative;
+}
+
+
+ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    width: 100%;
+    height: 2px;
+    background: black;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease-in-out;
+}
+
+ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+.overlay-show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 6;
+    cursor: pointer;
+}
+
+.stop-scrollig {
+    overflow: hidden;
+}
+
+
+/* hamburger */
+.mobile-main-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: pointer;
+}
+
+/* bring menu from right */
+.show-menu {
+    transform: translate(0);
+
+}
+
+.mobile-main-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.mobile-main-menu ul li {
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-bottom: 1px white solid;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+
+
+
+}
+
+.mobile-main-menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.mobile-main-menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    width: 100%;
+    height: 2px;
+    background: black;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+.mobile-main-menu ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (min-width: 766px) {
+    .mobile-main-menu ul li a {
+        display: none;
+    }
+}
+
+
+/* hamburger menu */
+@media (max-width: 766px) {
+    .hamburger {
+        position: fixed;
+        top: 40px;
+        right: 20px;
+        z-index: 10;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        background: none;
+        border: none;
+        display: block;
+
+
+    }
+
+    .hamburger-top,
+    .hamburger-middle,
+    .hamburger-bottom {
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        top: 0;
+        left: 0;
+        background: black;
+        transition: all 0.5s;
+
+    }
+
+    .hamburger-middle {
+        transform: translateY(5px);
+    }
+
+    .hamburger-bottom {
+        transform: translateY(10px);
+    }
+
+    /* hamburger to X when open */
+    .open {
+        transform: rotate(90deg);
+    }
+
+    .open .hamburger-top {
+        transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
+
+    .open .hamburger-middle {
+        display: none;
+    }
+
+    .open .hamburger-bottom {
+        transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    }
+}
+
+@media (max-width: 964px) {
+    .navbar-custom {
+        min-height: 3rem;
+        /* Reduce height for smaller screens */
+    }
+
+    .logo {
+        margin-left: 5%;
+        /* Reduce left margin */
+    }
+
+    .custom-nav {
+        margin-left: 2rem;
+    }
+
+    .navbar-nav {
+        gap: 10px;
+        /* Reduce spacing between items */
+        font-size: 13px;
+    }
+
+    .custom-button {
+        width: 6rem;
+        height: 1.75rem;
+    }
+
+    .custom-button {
+        font-size: 16px;
+    }
+}
+
+
+/* Section a */
+.custom-section-a {
+    background: var(--primary-color);
+}
+
+.section-para {
+    font-size: 20px;
+}
+
+@media (min-width: 992px) {
+    h1 {
+        font-size: 70px;
+    }
+
+    .section-heading {
+        margin-left: 159px;
+    }
+
+    .section-para {
+        margin-left: 159px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    h1 {
+        font-size: 70px;
+    }
+
+    .section-heading {
+        margin-left: 0;
+    }
+
+    .section-para {
+        margin-left: 0;
+    }
+
+}
+
+p {
+    font-size: 20px;
+}
+
+/* section B */
+.custom-para1-section-b {
+    font-size: 20px;
+    line-height: 1.44;
+}
+
+.custom-btn {
+    width: 10.375rem;
+    height: 2.863rem;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.custom-btn:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #FF4500;
+    border: 2px #FF4500 solid;
+}
+
+.small-screen {
+    display: none;
+}
+
+@media(min-width:1024px) {
+    .large-screen {
+        display: block;
+    }
+
+    .small-screen {
+        display: none;
+    }
+
+    .small-screen-h3 {
+        display: none;
+        font-size: 25px;
+    }
+
+    .large-screen-h3 {
+        display: block;
+    }
+
+    h2 {
+        font-size: 48px;
+        font-weight: 700;
+    }
+
+}
+
+@media (max-width:1023px) {
+    .large-screen {
+        display: none;
+    }
+
+    .small-screen {
+        display: block;
+    }
+
+    .small-screen-h3 {
+        display: block;
+        font-size: 28px;
+    }
+
+    .large-screen-h3 {
+        display: none;
+    }
+
+
+}
+
+.custom-post {
+    margin-left: 10%;
+}
+
+@media (max-width:800px) {
+    p {
+        font-size: 16px;
+    }
+}
+
+.section-c {
+    background-color: black;
+    color: white;
+}
+
+
+/* Add consistent width, height, and spacing for the boxes */
+/* Box styles */
+/* Box styles */
+.box {
+    width: 228px;
+    height: 160px;
+    background-color: #f8f9fa;
+    /* Light gray background */
+    border: 1px solid #ddd;
+    /* Light border */
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: black
+}
+
+/* For large screens */
+@media (min-width: 992px) {
+    .custom-container {
+        max-width: 1440px;
+        padding-left: 230px;
+        /* Side margins */
+        padding-right: 230px;
+    }
+}
+
+/* For medium screens */
+@media (max-width: 991.98px) {
+    .box {
+        width: 470px;
+        /* Adjusted width for 2 boxes per row */
+        height: 160px;
+    }
+}
+
+/* For small and extra-small screens */
+@media (max-width: 767.98px) {
+    .box {
+        width: 228px;
+        /* Default box size */
+        height: 160px;
+    }
+
+    .row {
+        justify-content: center;
+        /* Centered layout */
+    }
+}
+
+.section-c h4 {
+    font-size: 48px;
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+@media (max-width: 767.98px) {
+
+    .section-c h4 {
+        font-size: 36px;
+        font-weight: 800;
+
+    }
+
+}
+
+.sec-btn-c {
+    width: 10.375rem;
+    height: 2.863rem;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+.sec-btn-c:hover {
+    border: 2px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+/* Default image styling */
+/* Fixed size for large screens */
+/* Ensure the border is within the card and doesn't overlay the image */
+
+
+/* Fixed size for large screens */
+/* @media (min-width: 992px) { */
+/* .card-img-top { */
+/* width: 100%; Image fills the card width */
+/* height: 257px; Fixed height */
+/* object-fit: cover; Ensures image maintains aspect ratio and covers area */
+/* }
+} */
+
+/* Responsive images for smaller screens */
+/* @media (max-width: 991px) {
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+} */
+/* .card img {
+    width: 466px;
+    height: 258px;
+    object-fit: cover; 
+    border-radius: 20px;
+}
+
+.card {
+    width: 466px;
+    height: 450px; 
+    border: none;
+    box-shadow: none;
+    border-radius: 20px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    font-weight: 700;
+   
+
+} */
+
+
+
+.card {
+    max-width: 466px;
+    /* Ensures consistent width for all cards */
+    height: 450px;
+    /* Keeps the height equal for all cards */
+    margin: auto;
+    /* Centers cards in their columns */
+    border: none;
+    box-shadow: none;
+    border-radius: 20px;
+}
+
+.card img {
+    width: 100%;
+    /* Ensures images fit the card width */
+    height: 258px;
+    /* Keeps image height consistent */
+    object-fit: cover;
+    /* Maintains proper scaling without distortion */
+    border-radius: 20px;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.card-body {
+    height: auto;
+    /* Allows body content to adjust naturally */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 700;
+
+}
+
+.date {
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+        /* Adjust cards to fit the column on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .card img {
+        height: 200px;
+        /* Reduce image height for small screens */
+    }
+}
+
+h5 {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    h5 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+}
+
+.sec-btn-d {
+    width: 15.375rem;
+    height: 2.863rem;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+.sec-btn-d:hover {
+    border: 2px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .sec-btn-d {
+        font-size: 16px;
+        width: 12rem;
+    }
+}
+
+/* footer */
+footer{
+    background-color: black;
+    color: white;
+}
+table{
+    border-collapse: collapse; 
+}
+table th{
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+    color: var(--primary-color);
+}
+table td{
+    font-size: 16px;
+    padding: 1%;
+    text-align: left;
+}
+td:hover {
+    /* Change background to gray on hover */
+    color: gray; 
+    cursor: pointer;/* Optionally change text color to white */
+}
+.footer-copyright{
+    color: #737577;
+    font-size: .75rem;
+}
+.table2 td {
+    padding: 10px 0; /* Apply vertical padding to all rows */
+  }
+
+  @media (max-width: 767px) {
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background-color: #f8f9fa; /* Light background */
+      z-index: 5; /* Keep header on top */
+    }
+  }
+  
+  .about{
+    z-index: 10;
+  }
